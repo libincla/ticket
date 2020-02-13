@@ -1,0 +1,12 @@
+<h3>{{ owner.username }}</h3>
+<h4>{{ owner.id }}</h4>
+<h2>{{ owner }}</h2>
+
+<ul>
+    
+    {% for t in object_list %}
+        <li><a href="{% url 'ticket-detail' t.id %}"> {{ t.title }}</a></li>
+        <!-- <li> {{ t.title  }}</li> -->
+        <p>super cool</p>
+    {% endfor %}
+</ul>

@@ -1,0 +1,6 @@
+<ul>
+{% for i in ticket_list %}
+    <!-- <li> {{ i.id }} | {{ i.title }} |  {{ i.content }} | {{ i.owner.username }} | {{ i.status }} | {{ i.owner.password }}</li> -->
+    <li><a href="{% url 'ticket-detail' i.id %}">{{ i.title }}</a></li>
+{% endfor %}
+</ul>

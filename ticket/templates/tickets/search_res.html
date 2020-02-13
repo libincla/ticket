@@ -1,0 +1,16 @@
+<h3>工单标题</h3>
+<p>请输入 <strong>{{ q }}</strong></p>
+
+{% if ticket %}
+
+<p>发现了 {{ ticket|length }}个 ticket{{ ticket | pluralize }}</p>
+<ul>
+    {% for t in ticket %}
+    <!-- <li>{{ t.title }}</li> -->
+    <li><a href="{%  url 'ticket-detail' t.id %}">{{ t.title }}</a></li>
+    {% endfor %}
+</ul>
+{% else %}
+<p>没有发现搜索结果</p>
+{% endif %}
+

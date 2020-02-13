@@ -1,0 +1,14 @@
+<form method="post">
+    {% csrf_token %}
+    {{ form.as_p }}
+    <input type="submit" value="Save">
+    <!-- <div class="control-label">
+        {{ form.title.label_tag }}
+    </div>
+    <div class="">
+        {{ form.title }}
+    </div>
+    {{ form.title.errors }}
+    <input type="submit" value="Save"> -->
+
+</form>

@@ -1,0 +1,14 @@
+{% extends 'tickets/index.html' %}
+
+{% block body_block %}
+        <!-- DataTales Example -->
+        <div class="container">
+            <h4>用户资料</h4>    
+            <dl>
+              <dt>用户名</dt>
+              <dd>- {{ user.username }}</dd>
+              <dt>邮箱</dt>
+              <dd>- {{ user.email }}</dd>
+            </dl>     
+        </div>
+{% endblock %}

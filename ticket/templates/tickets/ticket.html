@@ -1,0 +1,83 @@
+{% extends 'tickets/index.html' %}
+<head>
+        <!-- <title>Bootstrap 实例</title> -->
+        <meta charset="utf-8">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <link rel="stylesheet" href="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+        <script src="https://cdn.staticfile.org/jquery/3.2.1/jquery.min.js"></script>
+        <script src="https://cdn.staticfile.org/popper.js/1.15.0/umd/popper.min.js"></script>
+        <script src="https://cdn.staticfile.org/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+</head>
+
+
+{% block body_block %}
+
+<!-- <p>
+    {% if ticket.priority == 1 %}
+        低
+    {% elif ticket.priority == 2 %}
+        中
+    {% elif ticket.priority == 3 %}
+        高
+    {% endif %}
+</p>
+<p>
+    {% if ticket.status == 0 %}
+    已完成
+    {% elif ticket.status == 1 %}
+    正在进行
+    {% elif ticket.status == 2 %}
+    中断的
+    {% endif %}
+
+</p> -->
+<div class="container">
+    {% for t in ticket %}
+    <div class="card">
+          <div class="card-body" >
+            <h5 class="card-title">工单标题 {{ t.title }}</h5>
+            <hr />
+            <p class="card-text">工单内容 {{ t.content }}</p> 
+          </div>
+    </div>
+    {% endfor %}
+</div>
+
+<!-- <ol>
+{% for t in ticket %}
+    <li> {{ t.title }} | {{ t.content }} | {{ t.status }}| {{ t.created_time }}</li>
+{% endfor %}
+</ol> -->
+
+
+<hr />
+<ul>
+{% if comment %}
+    {% for c in comment %}
+    <li>
+        {{ c.content }} | {{ c.created_time }}  | by {{ c.owner.username }}
+    </li>
+    {% endfor %}
+{% endif %}
+<!-- {% if t.comment %}
+    {% for c in t.comment %}
+    <li> {{ c.title }} |  {{ c.content }}</li>
+    {% endfor %}
+{% endif %} -->
+</ul>
+<!-- <form action="" method="post">
+   
+    <textarea name="comment"></textarea>
+    <input type="submit" value="发布">
+</form> -->
+
+<form action="" method="post">
+        {% csrf_token %}
+        <div class="form-group">
+          <label for="comment">评论:</label>
+          <textarea class="form-control" rows="5" id="comment" name="comment"></textarea>
+          <input type="submit" value="发布">
+        </div>
+      </form>
+{% endblock %}
+

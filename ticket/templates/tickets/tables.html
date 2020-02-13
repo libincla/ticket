@@ -1,0 +1,74 @@
+{% extends 'tickets/index.html' %}
+
+{% block body_block %}
+        <!-- DataTales Example -->
+          <div class="card shadow mb-12">
+            <div class="card-header py-3">
+              <h6 class="m-0 font-weight-bold text-primary">工单列表</h6>
+            </div>
+            <div class="card-body py-9">
+              <div class="table-responsive">
+                <table class="table table-bordered" id="dataTable" width="100%" cellspacing="0">
+                  <thead>
+                    <tr>
+                      <th>工单标题</th>
+                      <th>工单优先级</th>
+                      <th>工单状态</th>
+                      <th>提工单的人</th>
+                      <th>工单创建时间</th>
+                      <th>工单失效时间</th>
+                      <!-- <th>操作</th> -->
+                    </tr>
+                  </thead>
+                  <tbody>
+                      {% for ticket in ticketlist %}
+                    <tr>
+                      <td><a href="/t/{{ ticket.id }}/?user_id={{ user.id }}">{{ ticket.title }}</a></td>
+                      <td>
+                        {% if ticket.priority == 1 %}
+                          低
+                        {% elif ticket.priority == 2 %}
+                          中
+                        {% else %}
+                          高
+                        {% endif %}
+                      </td>
+                      <td>
+                        {% if ticket.status == 0 %}
+                          已完成
+                        {% elif ticket.status == 1 %}
+                          正在做
+                        {% else %}
+                          中止
+                        {% endif %}
+                        <!-- {{ ticket.status }} -->
+                      </td>
+                      <!-- <td>{{ ticket.assign_to }}</td> -->
+                      <td>{{ ticket.belong }}</td>
+                      <td>{{ ticket.created_time }}</td>
+                      <td>{{ ticket.expired_time }}</td>
+                      <!-- <td><button type="button" class="btn btn-danger" onclick="javascript:window.location.href='/t/{{ ticket.id }}/update/'">编辑</button></td> -->
+                    </tr>
+                    {% endfor %}
+                  </tbody>
+                </table>
+              </div>
+            </div>
+          </div>
+          <!-- <div class="dataTables_paginate paging_simple_numbers" id="dataTable_paginate">
+              <ul class="pagination">
+                <li class="paginate_button page-item previous" id="dataTable_previous">
+                  <a href="#" aria-controls="dataTable" data-dt-idx="0" tabindex="0" class="page-link">Previous</a>
+                </li>
+                <li class="paginate_button page-item ">
+                  <a href="#" aria-controls="dataTable" data-dt-idx="1" tabindex="0" class="page-link">1</a>
+                </li>
+                <li class="paginate_button page-item active">
+                  <a href="#" aria-controls="dataTable" data-dt-idx="2" tabindex="0" class="page-link">2</a>
+                </li>
+                <li class="paginate_button page-item next disabled" id="dataTable_next">
+                  <a href="#" aria-controls="dataTable" data-dt-idx="3" tabindex="0" class="page-link">Next</a>
+                </li>
+              </ul>
+            </div> -->
+{% endblock %}

@@ -1,0 +1,49 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title> {{ title }}</title>
+        <link rel="stylesheet" href="https://cdn.bootcss.com/mobi.css/3.0.0-beta.3/mobi.min.css">
+    </head>
+    <body>
+        <div class="flex-center">
+            <div class="container">
+                <div class="flex-center">
+                    <div class="unit-1-2 unit-1-on-mobile">
+                        <h3 align="center">会通工单系统登录</h3>
+                        <br />
+                        {% if tips %}
+                            <p style="color: crimson"> {{ tips }} </p>
+                        {% endif %}
+                        <br />
+                        <form class="form" action="" method="post"> 
+                            {% csrf_token %}
+                            <div>
+                                用户名:
+                                <input type="text" name="username">
+                            </div>
+                            <div>
+                                密码:
+                                <input type="password" name="password">
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-block">确定</button>
+                        </form>
+
+                        <div class="flex-left top-gap text-small">
+                            <div class="flex-left">
+                                <a href="/register/">新用户?注册一下吧</a>
+                            </div>
+                            &emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;&emsp;
+                            <div class="flex-right">
+                                 <a href="/findpassword/">找回密码</a>
+                            </div>
+                        </div>
+                        <!-- {% if tips %}
+                        <div>{{ tips }}</div>
+                        {% endif %} -->
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>

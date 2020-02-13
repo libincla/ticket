@@ -1,0 +1,70 @@
+{% extends 'tickets/index.html' %}
+
+
+{% block body_block %}
+
+
+{% if form.errors %}
+    <p style="color:crimson">
+        请修正错误 {{ form.errors | pluralize }}
+    </p>
+{% endif %}
+
+<form action="" method="post">
+    <table>
+        {{ form.as_table }}
+    </table>
+    {% csrf_token %}
+    <input type="submit" value="提交">
+</form>
+
+<!-- <form action="" method="post">
+    {% csrf_token %}
+        <div class="form-group">
+          {{ form.title.errors }}
+          <label for="usr">用户名:</label>
+          {{ form.title }}
+        </div>
+        <div class="form-group">
+            {{ form.content.errors }}
+          <label for="comment">内容:</label>
+            {{ form.content }}
+          <input type="password" class="form-control" id="pwd">
+        </div>
+        <div class="form-group">
+                {{ form.priority.errors }}
+              <label for="priority">优先级:</label>
+                {{ form.priority }}
+              <input type="password" class="form-control" id="pwd"> -->
+        <!-- </div>
+        <div class="form-group">
+                {{ form.assign_to.errors }}
+              <label for="assign_to">指派给谁:</label>
+                {{ form.assign_to }}
+              <input type="password" class="form-control" id="pwd"> -->
+        <!-- </div> -->
+        <!-- <div class="form-group">
+                {{ form.expired_time.errors }}
+              <label for="expired_time">截止日期:</label>
+                {{ form.expired_time }}
+            <input type="password" class="form-control" id="pwd"> -->
+        <!-- </div>  -->
+        <!-- <div class="form-group"> -->
+                <!-- {{ form.description.errors }} -->
+              <!-- <label for="description">还有什么想说的么:</label> -->
+                <!-- {{ form.description }} -->
+              <!-- <input type="password" class="form-control" id="pwd"> -->
+        <!-- </div> -->
+        <!-- <input type="submit" value="提交"> -->
+<!-- </form>  --> 
+
+
+
+
+<!-- <form>
+        <div class="form-group">
+          <label for="comment">评论:</label>
+          <textarea class="form-control" rows="5" id="comment"></textarea>
+        </div>
+      </form> -->
+{% endblock %}

@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html>
+    <head>
+        <meta charset="utf-8">
+        <title>找回密码</title>
+        <link rel="stylesheet" href="https://cdn.bootcss.com/mobi.css/3.0.0-beta.3/mobi.min.css">
+    </head>
+    <body>
+        <div class="flex-center">
+            <div class="container">
+                <div class="flex-center">
+                    <div class="unit-1-2 unit-1-on-mobile">
+                        <h3>会通工单系统登录</h3>
+
+                        <form action="" method="POST">
+                            {% csrf_token %}
+                            <div>
+                                <input type="text" name="username" placeholder="请输入你的用户名">
+                                <!-- {% if user_error %} -->
+                                {{ user_error }}
+                                <!-- {% endif %} -->
+                            </div>
+                            <div>
+                                <input type="email" name="email" placeholder="请输入你的邮箱">
+                                {{ email_error }}
+                            </div>
+                            <br />
+                            <div>
+                                <input id="submit" type="submit" value="提交">
+                            </div>
+                        </form>
+                        {{ success }}
+             
+                       <div class="flex-left top-gap text-small">
+                            <div class="flex-right">
+                                <a href="/login/">请登录</a>
+                            </div>
+                        </div> 
+                       <!-- {% if tips %}
+                        <div>{{ tips }}</div>
+                        {% endif %} --> 
+                    </div>
+                </div>
+            </div>
+        </div>
+    </body>
+</html>
