@@ -128,16 +128,16 @@ LOGIN_URL = '/login/'
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/1.11/howto/static-files/
 
-# STATIC_URL = '/Users/libin/django_project/ticket/ticket/static/'
+# STATIC_URL = ''
 STATIC_URL = '/static/'
 STATIC_DIR = os.path.join(BASE_DIR, 'ticket/static')
-# STATIC_DIR =  '/Users/libin/django_project/ticket/ticket/static/'
+# STATIC_DIR =  ''
 STATICFILES_DIRS = [STATIC_DIR,]
 # print(BASE_DIR)
 # for Email
 EMAIL_USE_SSL = True
-EMAIL_HOST = 'smtp.exmail.qq.com'
+EMAIL_HOST = 'xxxxxx.qq.com'
 EMAIL_PORT = 465
-EMAIL_HOST_USER = 'libin@huitongjy.com'
-EMAIL_HOST_PASSWORD = 'Cla2026825'
+EMAIL_HOST_USER = 'XXXXXX'
+EMAIL_HOST_PASSWORD = 'XXXXXX'
 DEFAULT_FROM_EMAIL = EMAIL_HOST_USER
